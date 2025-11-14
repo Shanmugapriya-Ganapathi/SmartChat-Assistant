@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Chat</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body class="chat-page">
+    <div class="chat-container">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="sidebar-header">
+                <button id="new-chat-btn" class="new-chat-btn">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                        <path d="M10 4V16M4 10H16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                    New Chat
+                </button>
+            </div>
+            
+            <div class="chats-list" id="chats-list">
+                <!-- Chats will be loaded here -->
+            </div>
+            
+            <div class="sidebar-footer">
+                <div class="user-info">
+                    <div class="user-avatar">{{ username[0].upper() }}</div>
+                    <span class="username">{{ username }}</span>
+                </div>
+                <a href="/logout" class="logout-btn">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                        <path d="M7 3H3V17H7M13 14L17 10M17 10L13 6M17 10H7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+        
+        <!-- Main Chat Area -->
+        <div class="main-chat">
+            <div class="chat-header">
+                <h2 id="chat-title">New Chat</h2>
+                <div class="chat-actions">
+                    <button id="rename-btn" class="icon-btn" title="Rename chat">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                            <path d="M12 4L16 8M2 18L4.5 17.5L15 7L13 5L2.5 15.5L2 18Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
+                    <button id="delete-btn" class="icon-btn" title="Delete chat">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                            <path d="M3 5H17M8 3H12M8 9V15M12 9V15M5 5L6 17H14L15 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            
+            <div class="messages-container" id="messages-container">
+                <div class="welcome-message">
+                    <div class="welcome-icon">
+                        <svg width="60" height="60" viewBox="0 0 60 60" fill="none">
+                            <circle cx="30" cy="30" r="28" fill="#128C7E"/>
+                            <path d="M30 18 C22.27 18 16 24.27 16 32 C16 34.68 16.58 37.22 17.58 39.49 L18 42 L20.51 41.42 C22.78 42.42 25.32 43 28 43 C35.73 43 42 36.73 42 29 C42 21.27 35.73 18 30 18 Z" fill="#25D366"/>
+                            <path d="M24 29 L27 32 L36 23" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <h2>How can I help you today?</h2>
+                    <p>Start a conversation by typing a message below.</p>
+                </div>
+            </div>
+            
+            <div class="input-container">
+                <div class="input-wrapper">
+                    <textarea id="message-input" placeholder="Type your message here..." rows="1"></textarea>
+                    <button id="send-btn" class="send-btn">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                            <path d="M2 10L18 2L10 18L8 11L2 10Z" fill="currentColor"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Rename Modal -->
+    <div id="rename-modal" class="modal">
+        <div class="modal-content">
+            <h3>Rename Chat</h3>
+            <input type="text" id="rename-input" placeholder="Enter new chat name">
+            <div class="modal-actions">
+                <button id="cancel-rename" class="btn-secondary">Cancel</button>
+                <button id="confirm-rename" class="btn-primary">Rename</button>
+            </div>
+        </div>
+    </div>
+    
+    <script src="{{ url_for('static', filename='js/chat.js') }}"></script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - AI Chat</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body class="login-page">
+    <div class="login-container">
+        <div class="login-box">
+            <div class="logo">
+                <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="25" cy="25" r="23" fill="#128C7E"/>
+                    <path d="M25 15 C18.37 15 13 20.37 13 27 C13 28.9 13.48 30.68 14.32 32.24 L15 35 L17.76 34.32 C19.32 35.16 21.1 35.64 23 35.64 C29.63 35.64 35 30.27 35 23.64 C35 17.01 29.63 15 25 15 Z" fill="#25D366"/>
+                    <path d="M20 23 L23 26 L30 19" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </div>
+            <h1>Welcome to AI Chat</h1>
+            <p class="subtitle">Sign in to continue your conversations</p>
+            
+            <div id="error-message" class="error-message" style="display: none;"></div>
+            <div id="success-message" class="success-message" style="display: none;"></div>
+            
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" placeholder="Enter your username" autocomplete="username">
+            </div>
+            
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" placeholder="Enter your password" autocomplete="current-password">
+            </div>
+            
+            <button id="login-btn" class="login-btn">Sign In</button>
+            
+            <p class="info-text">New user? Just enter a username and password to create an account.</p>
+        </div>
+    </div>
+    
+    <script src="{{ url_for('static', filename='js/login.js') }}"></script>
+</body>
+</html>
